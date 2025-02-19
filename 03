@@ -1,0 +1,22 @@
+using System;
+
+class Produto
+{
+    public string Nome { get; set; }
+    public double PrecoUnitario { get; set; }
+    public int Quantidade { get; set; }
+
+    public double CalcularValorTotal()
+    {
+        return PrecoUnitario * Quantidade;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Produto produto = new Produto { Nome = "Notebook", PrecoUnitario = 2500.00, Quantidade = 2 };
+        Console.WriteLine("Valor total do produto " + produto.Nome + ": " + produto.CalcularValorTotal());
+    }
+}
