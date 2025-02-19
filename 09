@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+
+class Agenda
+{
+    private List<string> contatos = new List<string>();
+
+    public void AdicionarContato(string nome)
+    {
+        contatos.Add(nome);
+        Console.WriteLine("Contato " + nome + " adicionado.");
+    }
+
+    public void RemoverContato(string nome)
+    {
+        if (contatos.Contains(nome))
+        {
+            contatos.Remove(nome);
+            Console.WriteLine("Contato " + nome + " removido.");
+        }
+        else
+        {
+            Console.WriteLine("Contato não encontrado.");
+        }
+    }
+
+    public void BuscarContato(string nome)
+    {
+        if (contatos.Contains(nome))
+        {
+            Console.WriteLine("Contato " + nome + " encontrado.");
+        }
+        else
+        {
+            Console.WriteLine("Contato não encontrado.");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Agenda agenda = new Agenda();
+        agenda.AdicionarContato("João");
+        agenda.BuscarContato("João");
+        agenda.RemoverContato("João");
+        agenda.BuscarContato("João");
+    }
+}
