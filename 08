@@ -1,0 +1,33 @@
+using System;
+
+class Triangulo
+{
+    public double LadoA { get; set; }
+    public double LadoB { get; set; }
+    public double LadoC { get; set; }
+
+    public string VerificarTipo()
+    {
+        if (LadoA == LadoB && LadoB == LadoC)
+        {
+            return "Equilátero";
+        }
+        else if (LadoA == LadoB || LadoA == LadoC || LadoB == LadoC)
+        {
+            return "Isósceles";
+        }
+        else
+        {
+            return "Escaleno";
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Triangulo triangulo = new Triangulo { LadoA = 5, LadoB = 5, LadoC = 5 };
+        Console.WriteLine("Tipo do triângulo: " + triangulo.VerificarTipo());
+    }
+}
