@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+
+class Banco
+{
+    private List<string> contas = new List<string>();
+
+    public void AbrirConta(string numeroConta)
+    {
+        contas.Add(numeroConta);
+        Console.WriteLine("Conta " + numeroConta + " aberta com sucesso.");
+    }
+
+    public void FecharConta(string numeroConta)
+    {
+        if (contas.Contains(numeroConta))
+        {
+            contas.Remove(numeroConta);
+            Console.WriteLine("Conta " + numeroConta + " fechada com sucesso.");
+        }
+        else
+        {
+            Console.WriteLine("Conta não encontrada.");
+        }
+    }
+
+    public void Depositar(string numeroConta, double valor)
+    {
+        Console.WriteLine("Depósito de " + valor + " na conta " + numeroConta);
+    }
+
+    public void Sacar(string numeroConta, double valor)
+    {
+        Console.WriteLine("Saque de " + valor + " na conta " + numeroConta);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Banco banco = new Banco();
+        banco.AbrirConta("12345");
+        banco.Depositar("12345", 1000);
+        banco.Sacar("12345", 500);
+        banco.FecharConta("12345");
+    }
+}
