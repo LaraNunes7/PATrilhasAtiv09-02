@@ -1,0 +1,42 @@
+using System;
+
+class ContaBancaria
+{
+    public string NumeroConta { get; set; }
+    public double Saldo { get; set; }
+
+    public void Depositar(double valor)
+    {
+        Saldo += valor;
+        Console.WriteLine("Depósito de " + valor + " realizado. Novo saldo: " + Saldo);
+    }
+
+    public void Sacar(double valor)
+    {
+        if (valor > Saldo)
+        {
+            Console.WriteLine("Saldo insuficiente.");
+        }
+        else
+        {
+            Saldo -= valor;
+            Console.WriteLine("Saque de " + valor + " realizado. Novo saldo: " + Saldo);
+        }
+    }
+
+    public void VerificarSaldo()
+    {
+        Console.WriteLine("Saldo atual: " + Saldo);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        ContaBancaria conta = new ContaBancaria { NumeroConta = "12345", Saldo = 1000 };
+        conta.Depositar(500);
+        conta.Sacar(200);
+        conta.VerificarSaldo();
+    }
+}
