@@ -1,0 +1,36 @@
+using System;
+
+class Livro
+{
+    public string Titulo { get; set; }
+    public bool Disponivel { get; set; }
+
+    public bool VerificarDisponibilidade()
+    {
+        return Disponivel;
+    }
+
+    public void Emprestar()
+    {
+        if (Disponivel)
+        {
+            Disponivel = false;
+            Console.WriteLine("Livro " + Titulo + " emprestado com sucesso.");
+        }
+        else
+        {
+            Console.WriteLine("Livro " + Titulo + " não está disponível para empréstimo.");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Livro livro = new Livro { Titulo = "Dom Casmurro", Disponivel = true };
+        Console.WriteLine("Disponibilidade do livro " + livro.Titulo + ": " + livro.VerificarDisponibilidade());
+        livro.Emprestar();
+        Console.WriteLine("Disponibilidade do livro " + livro.Titulo + ": " + livro.VerificarDisponibilidade());
+    }
+}
