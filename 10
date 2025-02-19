@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+
+class CarrinhoDeCompras
+{
+    private List<string> produtos = new List<string>();
+    private List<double> precos = new List<double>();
+
+    public void AdicionarProduto(string nome, double preco)
+    {
+        produtos.Add(nome);
+        precos.Add(preco);
+        Console.WriteLine("Produto " + nome + " adicionado ao carrinho.");
+    }
+
+    public double CalcularValorTotal()
+    {
+        double total = 0;
+        foreach (double preco in precos)
+        {
+            total += preco;
+        }
+        return total;
+    }
+
+    public void ExibirItens()
+    {
+        for (int i = 0; i < produtos.Count; i++)
+        {
+            Console.WriteLine("Produto: " + produtos[i] + " - Preço: " + precos[i]);
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+        carrinho.AdicionarProduto("Notebook", 2500);
+        carrinho.AdicionarProduto("Mouse", 50);
+        carrinho.ExibirItens();
+        Console.WriteLine("Valor total da compra: " + carrinho.CalcularValorTotal());
+    }
+}
